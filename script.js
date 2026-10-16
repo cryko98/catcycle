@@ -18,6 +18,28 @@
     });
   }
 
+  // Copy contract address
+  document.querySelectorAll(".js-copy").forEach((btn) => {
+    btn.addEventListener("click", async () => {
+      const text = btn.dataset.copy;
+      try {
+        await navigator.clipboard.writeText(text);
+      } catch (_) {
+        const ta = document.createElement("textarea");
+        ta.value = text;
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand("copy");
+        ta.remove();
+      }
+      btn.textContent = "Copied!";
+      btn.classList.add("is-copied");
+      setTimeout(() => { btn.textContent = "Copy"; btn.classList.remove("is-copied"); }, 1600);
+    });
+  });
+
   // Reveal on scroll
   const revealEls = document.querySelectorAll(".stage, .step, .spec-sheet, .anatomy__art, .parts li, .lore__quote");
   if ("IntersectionObserver" in window) {
