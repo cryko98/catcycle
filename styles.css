@@ -32,7 +32,7 @@ body {
   overflow-x: hidden;
 }
 
-img { max-width: 100%; display: block; }
+img { max-width: 100%; height: auto; display: block; }
 a { color: inherit; }
 h1, h2, h3 { line-height: 1.05; margin: 0; }
 
@@ -482,6 +482,7 @@ h1, h2, h3 { line-height: 1.05; margin: 0; }
   .hero__art { width: min(100% - 24px, 420px); }
   .route { grid-template-columns: 1fr; }
   .anatomy__grid, .pedal__grid { grid-template-columns: 1fr; gap: 40px; }
+  .anatomy__art { width: 100%; max-width: 520px; justify-self: center; }
   .steps { grid-template-columns: repeat(2, 1fr); }
 }
 
